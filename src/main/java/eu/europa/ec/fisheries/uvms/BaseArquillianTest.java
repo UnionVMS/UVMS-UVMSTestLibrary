@@ -8,7 +8,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.jboss.shrinkwrap.resolver.api.maven.ScopeType;
 
-public class AbstractArquillianTest {
+public class BaseArquillianTest {
 
     @Deployment
     public static WebArchive createDeployment() {
