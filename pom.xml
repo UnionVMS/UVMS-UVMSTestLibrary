@@ -5,7 +5,7 @@
     <artifactId>uvms-test</artifactId>
     <packaging>jar</packaging>
 
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>uvms-test</name>
     <url>http://maven.apache.org</url>
 
@@ -39,7 +39,7 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/UNIONVMS/branches/dev/Libraries/uvms-test</connection>
+        <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/UNIONVMS/tags/uvms-test/uvms-test-0.0.2</connection>
     </scm>
 
     <dependencies>
