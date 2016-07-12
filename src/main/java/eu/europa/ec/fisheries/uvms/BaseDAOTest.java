@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 import javax.sql.DataSource;
 
 @Slf4j
-public abstract class BaseDAOTest {
+public abstract class BaseDAOTest extends BaseUnitilsTest {
 
     private final String TEST_DB_USER = "sa";
     private final String TEST_DB_PASSWORD = "";
