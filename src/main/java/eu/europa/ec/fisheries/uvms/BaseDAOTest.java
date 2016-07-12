@@ -16,7 +16,7 @@ public abstract class BaseDAOTest extends BaseUnitilsTest {
 
     private final String TEST_DB_USER = "sa";
     private final String TEST_DB_PASSWORD = "";
-    private final String TEST_DB_URL = "jdbc:h2:mem:testdb;FILE_LOCK=FILE;INIT=CREATE SCHEMA IF NOT EXISTS "+ getSchema() +";DATABASE_TO_UPPER=false;TRACE_LEVEL_SYSTEM_OUT=1";
+    private final String TEST_DB_URL = "jdbc:h2:mem:testdb;FILE_LOCK=FS;INIT=CREATE SCHEMA IF NOT EXISTS "+ getSchema() +";DATABASE_TO_UPPER=false;TRACE_LEVEL_SYSTEM_OUT=1;MVCC=true";
 
     protected static DbSetupTracker dbSetupTracker = new DbSetupTracker();
 
