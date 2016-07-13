@@ -19,8 +19,6 @@ public abstract class BaseDAOTest extends BaseUnitilsTest {
 
     protected DataSource ds = JdbcConnectionPool.create(TEST_DB_URL, TEST_DB_USER, TEST_DB_PASSWORD);
 
-    private EntityManagerFactory emFactory;
-
     protected EntityManager em;
 
     @SneakyThrows
@@ -29,7 +27,7 @@ public abstract class BaseDAOTest extends BaseUnitilsTest {
         CreateSpatialExtension.initSpatialExtension(ds.getConnection());
 
         log.info("BuildingEntityManager for unit tests");
-        emFactory = Persistence.createEntityManagerFactory(getPersistenceUnitName());
+        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(getPersistenceUnitName());
         em = emFactory.createEntityManager();
     }
 
