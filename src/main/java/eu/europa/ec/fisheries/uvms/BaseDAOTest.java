@@ -1,5 +1,6 @@
 package eu.europa.ec.fisheries.uvms;
 
+import com.ninja_squad.dbsetup.DbSetupTracker;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.h2.jdbcx.JdbcConnectionPool;
@@ -12,6 +13,8 @@ import javax.sql.DataSource;
 
 @Slf4j
 public abstract class BaseDAOTest extends BaseUnitilsTest {
+
+    protected static DbSetupTracker dbSetupTracker = new DbSetupTracker();
 
     private final String TEST_DB_USER = "sa";
     private final String TEST_DB_PASSWORD = "";
