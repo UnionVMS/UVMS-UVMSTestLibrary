@@ -39,7 +39,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/UNIONVMS/branches/dev/Libraries/uvms-test</connection>
+        <connection>scm:git:https://emsanerac@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/UVMS-UVMSTestLibrary.git</connection>
+        <developerConnection>scm:git:https://emsanerac@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/UVMS-UVMSTestLibrary.git</developerConnection>
+        <url>https://emsanerac@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/</url>
     </scm>
 
     <dependencies>
@@ -194,11 +196,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <providerImplementations>
-                        <svn>javasvn</svn>
-                    </providerImplementations>
-                    <tagBase>https://webgate.ec.europa.eu/CITnet/svn/UNIONVMS/tags/uvms-test</tagBase>
-                    <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
+                   <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
