@@ -5,7 +5,7 @@
     <artifactId>uvms-test</artifactId>
     <packaging>jar</packaging>
 
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>uvms-test</name>
     <url>http://maven.apache.org</url>
 
@@ -19,21 +19,20 @@
         <ninja.squad.version>1.6.0</ninja.squad.version>
         <h2spatial.version>1.2.0</h2spatial.version>
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
-        <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+        <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
         <maven.scm.provider.version>2.1.1</maven.scm.provider.version>
         <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
-        <project.scm.id>github</project.scm.id>
+
+        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-UVMSTestLibrary.git</scm.connection>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>focus-repo</id>
-            <name>Focus nexus repository</name>
-            <url>http://nexus.focus.fish/</url>
-        </repository>
-    </repositories>
+    <scm>
+        <connection>${scm.connection}</connection>
+        <tag>HEAD</tag>
+    </scm>
 
-    <distributionManagement> 
+
+    <distributionManagement>
         <repository>
             <id>focus-releases</id>
             <name>UnionVms Repository</name>
@@ -46,9 +45,29 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <scm>
-        <connection>scm:git:https://github.com/UnionVMS/UVMS-UVMSTestLibrary.git</connection>
-    </scm>
+
+    <profiles>
+        <profile>
+            <id>dg-mare</id>
+            <distributionManagement>
+                <repository>
+                    <id>digit-releases</id>
+                    <name>DG DIGIT Repository</name>
+                    <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/mare/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>digit-snapshots</id>
+                    <name>DG DIGIT Snapshot Repository</name>
+                    <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/mare-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+
+            <properties>
+                <scm.connection>scm:git:https://emserveje@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/UVMS-UVMSTestLibrary.git</scm.connection>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <dependencies>
 
@@ -200,18 +219,9 @@
                         <artifactId>maven-scm-provider-svnjava</artifactId>
                         <version>${maven.scm.provider.version}</version>
                     </dependency>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.8.1</version>
-                    </dependency>
                 </dependencies>
                 <configuration>
-                    <providerImplementations>
-                        <svn>javasvn</svn>
-                    </providerImplementations>
-                    <tagBase>https://webgate.ec.europa.eu/CITnet/svn/UNIONVMS/tags/uvms-test</tagBase>
-                    <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
+                   <tagNameFormat>@{project.artifactId}-@{project.version}</tagNameFormat>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
