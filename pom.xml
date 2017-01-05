@@ -24,6 +24,7 @@
         <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
 
         <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-UVMSTestLibrary.git</scm.connection>
+        <project.scm.id>github</project.scm.id>
     </properties>
 
     <scm>
@@ -64,6 +65,7 @@
 
             <properties>
                 <scm.connection>scm:git:https://emserveje@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/UVMS-UVMSTestLibrary.git</scm.connection>
+                <project.scm.id></project.scm.id>
             </properties>
         </profile>
 
