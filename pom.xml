@@ -10,7 +10,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <release.branch.name>uvms-2.0.1-elrond</release.branch.name>
+        <release.branch.name>uvms-3.0.0-boba-fett</release.branch.name>
         <sl4j.version>1.7.12</sl4j.version>
         <javaee.version>7.0</javaee.version>
         <h2database.version>1.4.182</h2database.version>
@@ -65,8 +65,8 @@
 
             <properties>
                 <scm.connection>scm:git:https://emserveje@webgate.ec.europa.eu/CITnet/stash/scm/unionvms/UVMS-UVMSTestLibrary.git</scm.connection>
-                <project.scm.id></project.scm.id>
-            </properties>
+                <project.scm.id />
+            <release.branch.name>uvms-3.0.0-boba-fett</release.branch.name></properties>
         </profile>
 
     </profiles>
