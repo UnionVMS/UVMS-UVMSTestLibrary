@@ -1,15 +1,16 @@
 package eu.europa.ec.fisheries.uvms;
 
-import com.ninja_squad.dbsetup.DbSetupTracker;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
-import org.h2.jdbcx.JdbcConnectionPool;
-import org.h2gis.h2spatialext.CreateSpatialExtension;
-
+import java.sql.Connection;
+import java.sql.Statement;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.sql.DataSource;
+import org.h2.jdbcx.JdbcConnectionPool;
+import org.h2gis.functions.factory.H2GISFunctions;
+import com.ninja_squad.dbsetup.DbSetupTracker;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class BaseDAOTest extends BaseUnitilsTest {
@@ -26,9 +27,9 @@ public abstract class BaseDAOTest extends BaseUnitilsTest {
 
     @SneakyThrows
     public BaseDAOTest() {
-
-        CreateSpatialExtension.initSpatialExtension(ds.getConnection());
-
+        
+        H2GISFunctions.load(ds.getConnection());
+        
         log.info("BuildingEntityManager for unit tests");
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(getPersistenceUnitName());
         em = emFactory.createEntityManager();
