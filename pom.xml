@@ -12,19 +12,19 @@
     <parent>
         <groupId>fish.focus.maven</groupId>
 	    <artifactId>focus-pom</artifactId>
-	    <version>1.12</version>
+	    <version>1.19</version>
         <relativePath />
     </parent>
     
 
     <properties>
         <sl4j.version>1.7.12</sl4j.version>
-        <javaee.version>7.0</javaee.version>
-        <h2database.version>1.4.182</h2database.version>
+        <javaee.version>8.0</javaee.version>
+        <h2database.version>1.4.197</h2database.version>
         <apache.commons.version>3.4</apache.commons.version>
         <lombok.version>1.16.4</lombok.version>
-        <ninja.squad.version>1.6.0</ninja.squad.version>
-        <h2spatial.version>1.2.0</h2spatial.version>
+        <ninja.squad.version>2.1.0</ninja.squad.version>
+        <h2spatial.version>1.5.0</h2spatial.version>
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
         <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
         <maven.scm.provider.version>2.1.1</maven.scm.provider.version>
@@ -120,11 +120,11 @@
             <version>${ninja.squad.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.orbisgis</groupId>
-            <artifactId>h2spatial-ext</artifactId>
-            <version>${h2spatial.version}</version>
-        </dependency>
+		<dependency>
+		    <groupId>org.orbisgis</groupId>
+		    <artifactId>h2gis</artifactId>
+		    <version>${h2spatial.version}</version>
+		</dependency>
 
         <dependency>
             <groupId>org.jboss.arquillian</groupId>
@@ -148,13 +148,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
         </dependency>
 
         <dependency>
             <groupId>pl.pragmatists</groupId>
             <artifactId>JUnitParams</artifactId>
-            <version>1.0.4</version>
+            <version>1.1.1</version>
         </dependency>
 
         <dependency>
@@ -179,25 +179,25 @@
         <dependency>
             <groupId>org.unitils</groupId>
             <artifactId>unitils-core</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.6</version>
         </dependency>
 
         <dependency>
             <groupId>org.unitils</groupId>
             <artifactId>unitils-inject</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.6</version>
         </dependency>
 
         <dependency>
             <groupId>org.unitils</groupId>
             <artifactId>unitils-mock</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.6</version>
         </dependency>
 
         <dependency>
             <groupId>org.unitils</groupId>
             <artifactId>unitils-easymock</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.6</version>
         </dependency>
 
         <dependency>
@@ -213,5 +213,32 @@
         </dependency>
 
     </dependencies>
+    
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-jdk-bytecode-version</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <enforceBytecodeVersion>
+                                    <maxJdkVersion>1.9</maxJdkVersion>
+                                    <ignoredScopes>
+                                        <ignoreScope>test</ignoreScope>
+                                    </ignoredScopes>
+                                </enforceBytecodeVersion>
+                            </rules>
+                        </configuration>
+                    </execution>                        
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
