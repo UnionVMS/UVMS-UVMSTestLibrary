@@ -13,7 +13,7 @@
         <release.branch.name>uvms-2.0.1-elrond</release.branch.name>
         <sl4j.version>1.7.12</sl4j.version>
         <javaee.version>7.0</javaee.version>
-        <h2database.version>1.4.182</h2database.version>
+        <h2database.version>2.1.210</h2database.version>
         <apache.commons.version>3.4</apache.commons.version>
         <lombok.version>1.16.4</lombok.version>
         <ninja.squad.version>1.6.0</ninja.squad.version>
